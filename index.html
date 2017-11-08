@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>UW MapHacks</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <style>
+    #locationField {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    #email{
+      margin-top: 0px;
+      width: 200px;
+      margin-bottom: 5px;;
+    }
+    #controls {
+      width: 200px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    #autocomplete {
+      top: 0px;
+      left: 0px;
+      width: 200px;
+    }
+
+    #map {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    #topbox {
+      position: absolute;
+      width: 50%;
+      background: rgba(10,10,10,0.5);
+      padding: 20px;
+    }
+
+    #confirm {
+      padding: 0px;
+      margin: 0px;
+      display: none;
+    }
+
+    @media only screen and (max-device-width: 700px) {
+
+      #topbox {
+        position: absolute;
+        width: 100%;
+        background: rgba(10,10,10,0.5);
+        padding: 8px;
+      }
+      #locationField {
+        text-align: left;
+        margin-bottom: 5px;
+        margin-left: 0px;
+      }
+      #email{
+        margin-top: 0px;
+        width: 100px;
+        margin-bottom: 5px;;
+      }
+      #controls {
+        width: 100px;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+
+      #autocomplete {
+        top: 0px;
+        left: 0px;
+        width: 100px;
+      }
+
+    }
+
+    h1 {
+      font-family: "helvetica", sans-serif;
+      color: white;
+      margin-top: 0;
+    }
+    p {
+      font-family: sans-serif;
+      color: white;
+      opacity: 1;
+      line-height:22px;
+    }
+    h4 {
+      font-family: "helvetica", sans-serif;
+      color: white;
+      margin-top: 0;
+    }
+
+  </style>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    /* #map { position:absolute; top:0; bottom:0; width:100%; }
+		*/
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <div id="topbox">
+    <h1> Welcome to the MapHacks landing page.</h1>
+<!--
+    <p> A hackathon is an event in which a group of people occupy the same space,
+       break into groups of 2-5, learn new skills, and creatively solve problems. </p>
+
+    <p>Do you want to learn how to use geospatial tools and create awesome stuff?
+       We'll get more info up here soon, but give us your email
+       a place you'd like to visit (just for this map). It may take a few minutes
+        to show up on the map.</p>
+    -->
+    <h4> Enter a location you'd like to visit and your email. We'll send you more information on the hackathon coming in 2018. </h4>
+    <div id="locationField" text-align: center; >
+      <input id="email" placeholder="Your Email Address"></input>
+      <input id="autocomplete" placeholder="Your Favorite Place" type="text"></input>
+      <button type="button" onclick="fillInAddress()">Submit</button>
+
+    </div>
+
+    <p id="confirm"> <br/>Thanks! It will take a few minutes to display your dot! </p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    var placeSearch, autocomplete;
+
+    function initAutocomplete() {
+      // Create the autocomplete object, restricting the search to geographical
+      // location types.
+      autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */
+        (document.getElementById('autocomplete')), {
+          types: ['geocode']
+        });
+
+      // When the user selects an address from the dropdown, populate the address
+      // fields in the form.
+      //autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+      // Get the place details from the autocomplete object.
+      var place = autocomplete.getPlace();
+      if(place == null) {
+        alert('Please select a place from the autocomplete.')
+      }
+      console.log(place.geometry.location.lat() + "," + place.geometry.location.lng());
+      var sec = new Date().getTime();
+      var data1 = {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            place.geometry.location.lng(),
+            place.geometry.location.lat()
+          ]
+        },
+        "properties": {
+          "email": $('#email').val()
+        }
+      };
+      data1 = JSON.stringify(data1);
+      console.log(data1);
+      $.ajax({
+        type: "POST",
+        url: "https://41utvk47u0.execute-api.us-east-1.amazonaws.com/prod/send-data",
+        contentType: "text/plain",
+        data: data1,
+        success: function(d) {
+          $('#confirm').show();
+          console.log("success");
+        },
+        error: function(e) {
+          console.log("fail");
+        }
+      });
+    }
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWthZG91cmkiLCJhIjoiY2l6cmNpc3AwMDAzNjJ3bjIyMGFscDlnMiJ9.-e65hQu9KeEX-PbVJBsqdQ'
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/akadouri/cj9noafe93ofe2rljvxqyfq6b', // stylesheet location
+      center: [-10, 40], // starting position [lng, lat]
+      zoom: 2 // starting zoom
+    });
+
+    var url = 'https://41utvk47u0.execute-api.us-east-1.amazonaws.com/prod/get-data';
+    map.on('load', function() {
+      window.setInterval(function() {
+        map.getSource('pts').setData(url);
+      }, 2000);
+
+      map.addSource('pts', {
+        type: 'geojson',
+        data: url
+      });
+      map.addLayer({
+        "id": "pts",
+        "type": "circle",
+        "source": "pts",
+        "paint": {
+          "circle-color": "#cf87ff"
+        }
+      });
+    });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrNGYMbUj5UeP5jASa2SnvcDZKDOgFN9k&libraries=places&callback=initAutocomplete" async defer></script>
+</body>
+
+</html>
