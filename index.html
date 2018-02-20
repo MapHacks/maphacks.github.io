@@ -6,114 +6,49 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <style>
-    #locationField {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-    #email{
-      margin-top: 0px;
-      width: 200px;
-      margin-bottom: 5px;;
-    }
-    #controls {
-      width: 200px;
-      margin-bottom: 5px;
-      text-align: center;
-    }
-
-    #autocomplete {
-      top: 0px;
-      left: 0px;
-      width: 200px;
-    }
-
-    #map {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-    }
-
-    #topbox {
-      position: absolute;
-      width: 50%;
-      background: rgba(10,10,10,0.5);
-      padding: 20px;
-    }
-
-    #confirm {
-      padding: 0px;
-      margin: 0px;
-      display: none;
-    }
-
-    @media only screen and (max-device-width: 700px) {
-
-      #topbox {
-        position: absolute;
-        width: 100%;
-        background: rgba(10,10,10,0.5);
-        padding: 8px;
-      }
-      #locationField {
-        text-align: left;
-        margin-bottom: 5px;
-        margin-left: 0px;
-      }
-      #email{
-        margin-top: 0px;
-        width: 100px;
-        margin-bottom: 5px;;
-      }
-      #controls {
-        width: 100px;
-        margin-bottom: 5px;
-        text-align: left;
-      }
-
-      #autocomplete {
-        top: 0px;
-        left: 0px;
-        width: 100px;
-      }
-
-    }
-
-    h1 {
-      font-family: "helvetica", sans-serif;
-      color: white;
-      margin-top: 0;
-    }
-    p {
-      font-family: sans-serif;
-      color: white;
-      opacity: 1;
-      line-height:22px;
-    }
-    h4 {
-      font-family: "helvetica", sans-serif;
-      color: white;
-      margin-top: 0;
-    }
-
-  </style>
+  <link type="text/css" rel="stylesheet" href="style.css" />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    /* #map { position:absolute; top:0; bottom:0; width:100%; }
-		*/
-  </style>
 </head>
 
 <body>
+
   <div id="map"></div>
+
+  <a href="https://github.com/maphacks" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <style>
+    .github-corner:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+
+    @keyframes octocat-wave {
+      0%,
+      100% {
+        transform: rotate(0)
+      }
+      20%,
+      60% {
+        transform: rotate(-25deg)
+      }
+      40%,
+      80% {
+        transform: rotate(10deg)
+      }
+    }
+
+    @media (max-width:500px) {
+      .github-corner:hover .octo-arm {
+        animation: none
+      }
+      .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+  </style>
+
   <div id="topbox">
-    <h1> Welcome to the MapHacks landing page.</h1>
-<!--
+    <h1 style="text-align:center">MapHacks</h1>
+    <!--
     <p> A hackathon is an event in which a group of people occupy the same space,
        break into groups of 2-5, learn new skills, and creatively solve problems. </p>
 
@@ -122,15 +57,53 @@
        a place you'd like to visit (just for this map). It may take a few minutes
         to show up on the map.</p>
     -->
-    <h4> Enter a location you'd like to visit and your email. We'll send you more information on our hackathon in (tentativly) April 28/29 2018. </h4>
-    <div id="locationField" text-align: center; >
-      <input id="email" placeholder="Your Email Address"></input>
-      <input id="autocomplete" placeholder="Your Favorite Place" type="text"></input>
-      <button type="button" onclick="fillInAddress()">Submit</button>
 
+    <h2>What is a Hackathon?</h2>
+    <h4>Hacking is creative problem solving. A hackathon is an event where people come together, form teams and work towards solving problem. Our hackathon is geography themed, which means projects should explore location, distance, space, spatial patterns, spatial interactions, scale, or nature and society.<h4>
+    <h4>We want you to try something new.
+      <a href=http://www.ibesora.me/time-to-animations-in-qgis/>Try mapping driving times,</a>
+      <a href="https://overpass-turbo.eu/">query data from OpenStreetMap,</a>
+      <a href="https://export.hotosm.org/en/v3/exports/new/describe">or download an entire place.</a>
+      <a href="https://www.qgis.org/en/site/">Visualize data with QGIS,</a>
+      <a href="https://www.mapbox.com/">or Mapbox,</a>
+      <a href="https://carto.com/">or Carto,</a>
+      <a href="https://www.tableau.com/">or Tableau.</a>
+      <a href="https://twitter.com/tierneyl/status/964560078442463232">Tell a story,<a/>
+      <a href="https://tjukanov.org/europe3d/">and let us interact with,<a/>
+      <a href="https://aporee.org/maps/">or listen to it.</a>
+    </h4>
+    <h4>We'll offer workshops the day of. If you like to teach something, reach out to us.</h4>
+    <h2>Who is the hackathon open to?<h2>
+    <h4>Our priority registration will be open to current Geography or HCDE undergradaute students, followed by all UW undergradaute students.</h4>
+
+    <h2>Where?</h2>
+    <div>
+      <button type="button" onclick="goToDenny()">Show Me Where</button>
+      <h4>MapHacks will take place in the University of Washington's Denny Hall.</h4>
+    </div>
+
+    <h2>When?<h2>
+    <h4>Workshops and hacking on April 28th, project presentations April 29th.</h4>
+
+    <h2>Want updates?</h2>
+    <h4>Enter a location you'd like to visit and your email. We'll send you more information on our hackathon.</h4>
+
+    <div id="locationField">
+      <input id="email" placeholder="Your Email Address"></input>
+      <input id="autocomplete" placeholder="Your Next Destination" type="text"></input>
+      <button type="button" onclick="fillInAddress()">Submit</button>
     </div>
 
     <p id="confirm"> <br/>Thanks! It will take a few minutes to display your dot! </p>
+
+    <h2>Partners<h2>
+    <img src="https://geography.washington.edu/sites/geography/files/geography-wordmark-white.png" />
+
+    <img style="height:100px"
+    src="https://www.hcde.washington.edu/files/logos/HCDE-signature-stacked-white.png" />
+    <div id="bottom">
+      <p>Contact: akadouri at uw.edu</p>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -154,7 +127,7 @@
     function fillInAddress() {
       // Get the place details from the autocomplete object.
       var place = autocomplete.getPlace();
-      if(place == null) {
+      if (place == null) {
         alert('Please select a place from the autocomplete.')
       }
       console.log(place.geometry.location.lat() + "," + place.geometry.location.lng());
@@ -193,15 +166,17 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/akadouri/cj9noafe93ofe2rljvxqyfq6b', // stylesheet location
-      center: [-10, 40], // starting position [lng, lat]
+      center: [-30, 30], // starting position [lng, lat]
       zoom: 2 // starting zoom
     });
 
     var url = 'https://41utvk47u0.execute-api.us-east-1.amazonaws.com/prod/get-data';
+
+
     map.on('load', function() {
-      window.setInterval(function() {
-        map.getSource('pts').setData(url);
-      }, 2000);
+      /* window.setInterval(function() {
+         map.getSource('pts').setData(url);
+       }, 2000); */
 
       map.addSource('pts', {
         type: 'geojson',
@@ -215,7 +190,45 @@
           "circle-color": "#cf87ff"
         }
       });
+      map.addLayer({
+        "id": "denny",
+        "type": "symbol",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [{
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-122.30895102024077,
+                  47.65843963978776
+                ]
+              },
+              "properties": {
+                "title": "Hack Over Here"
+              }
+            }]
+          }
+        },
+        "layout": {
+          "text-font": ["Arial Unicode MS Bold"],
+          "text-field": "{title}",
+        },
+        "paint": {
+          "text-color": "#ffffff"
+        }
+      });
     });
+
+    function goToDenny() {
+      map.flyTo({
+        center: [-122.3095,
+          47.6587251
+        ],
+        zoom: 18
+      });
+    }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrNGYMbUj5UeP5jASa2SnvcDZKDOgFN9k&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
