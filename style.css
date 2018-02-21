@@ -1,0 +1,125 @@
+ #locationField {
+   margin-bottom: 5px;
+ }
+
+ #email {
+   margin-top: 0px;
+   width: 200px;
+   margin-bottom: 5px;
+   margin-left: 29px; 
+ }
+
+ #controls {
+   width: 200px;
+   margin-bottom: 5px;
+   text-align: center;
+ }
+
+ #autocomplete {
+   top: 0px;
+   left: 0px;
+   width: 200px;
+ }
+
+ #map {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+ }
+
+ #topbox {
+   position: absolute;
+   margin: auto;
+   height: 75%;
+   width: 50%;
+   background: rgba(10, 10, 10, 0.6);
+   padding: 20px;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   overflow-y: scroll
+ }
+
+ #confirm {
+   padding: 0px;
+   margin: 0px;
+   display: none;
+ }
+
+ #bottom {
+   text-align: end;
+ }
+
+ @media only screen and (max-device-width: 700px) {
+   #topbox {
+     position: absolute;
+     width: 100%;
+     background: rgba(10, 10, 10, 0.6);
+     padding: 8px;
+   }
+   #locationField {
+     text-align: left;
+     margin-bottom: 5px;
+     margin-left: 0px;
+   }
+   #email {
+     margin-top: 0px;
+     width: 100px;
+     margin-bottom: 5px;
+   }
+   #controls {
+     width: 100px;
+     margin-bottom: 5px;
+     text-align: left;
+   }
+   #autocomplete {
+     top: 0px;
+     left: 0px;
+     width: 100px;
+   }
+ }
+
+ h1,h2{
+   font-family: "Roboto", sans-serif;
+   color: white;
+ }
+
+ h3,h4,a {
+   font-family: "ubuntu Mono", monospace;
+   color: white;
+   margin-top: 0;
+ }
+
+ p {
+   font-family: sans-serif;
+   color: white;
+   opacity: 1;
+   line-height: 22px;
+   font-size: 12px;
+ }
+
+button {
+  float: center;
+  border: none;
+  border-radius: 2px;
+  height: 25px;
+}
+
+button:hover{
+  background-color: #cf87ff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  color: #cf87ff;
+}
+
+label {
+  color: white;
+  font-family: "ubunut Mono", monospace;
+}
