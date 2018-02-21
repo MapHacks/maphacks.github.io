@@ -2,10 +2,11 @@
 <html>
 
 <head>
-  <title>UW MapHacks</title>
+  <title>MapHacks</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Ubuntu+Mono" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="style.css" />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
@@ -48,55 +49,49 @@
 
   <div id="topbox">
     <h1 style="text-align:center">MapHacks</h1>
-    <!--
-    <p> A hackathon is an event in which a group of people occupy the same space,
-       break into groups of 2-5, learn new skills, and creatively solve problems. </p>
-
-    <p>Do you want to learn how to use geospatial tools and create awesome stuff?
-       We'll get more info up here soon, but give us your email
-       a place you'd like to visit (just for this map). It may take a few minutes
-        to show up on the map.</p>
-    -->
-
-    <h2>What is a Hackathon?</h2>
-    <h4>Hacking is creative problem solving. A hackathon is an event where people come together, form teams and work towards solving problem. Our hackathon is geography themed, which means projects should explore location, distance, space, spatial patterns, spatial interactions, scale, or nature and society.<h4>
-    <h4>We want you to try something new.
-      <a href=http://www.ibesora.me/time-to-animations-in-qgis/>Try mapping driving times,</a>
-      <a href="https://overpass-turbo.eu/">query data from OpenStreetMap,</a>
-      <a href="https://export.hotosm.org/en/v3/exports/new/describe">or download an entire place.</a>
-      <a href="https://www.qgis.org/en/site/">Visualize data with QGIS,</a>
-      <a href="https://www.mapbox.com/">or Mapbox,</a>
-      <a href="https://carto.com/">or Carto,</a>
-      <a href="https://www.tableau.com/">or Tableau.</a>
-      <a href="https://twitter.com/tierneyl/status/964560078442463232">Tell a story,<a/>
-      <a href="https://tjukanov.org/europe3d/">and let us interact with,<a/>
-      <a href="https://aporee.org/maps/">or listen to it.</a>
-    </h4>
-    <h4>We'll offer workshops the day of. If you like to teach something, reach out to us.</h4>
-    <h2>Who is the hackathon open to?<h2>
-    <h4>Our priority registration will be open to current Geography or HCDE undergradaute students, followed by all UW undergradaute students.</h4>
-
-    <h2>Where?</h2>
-    <div>
-      <button type="button" onclick="goToDenny()">Show Me Where</button>
-      <h4>MapHacks will take place in the University of Washington's Denny Hall.</h4>
-    </div>
-
-    <h2>When?<h2>
-    <h4>Workshops and hacking on April 28th, project presentations April 29th.</h4>
-
     <h2>Want updates?</h2>
-    <h4>Enter a location you'd like to visit and your email. We'll send you more information on our hackathon.</h4>
-
+    <h4>Enter a location you'd like to visit and your email. We'll send you more information about the event.</h4>
     <div id="locationField">
-      <input id="email" placeholder="Your Email Address"></input>
-      <input id="autocomplete" placeholder="Your Next Destination" type="text"></input>
+      <label for= "email">Your Email Address:</label>
+      <input id="email" placeholder="Enter your email"></input>
+      <br/>
+      <label for= "autocomplete">Your Next Destination:</label>
+      <input id="autocomplete" placeholder="Enter a location on the map" type="text"></input>
       <button type="button" onclick="fillInAddress()">Submit</button>
     </div>
 
     <p id="confirm"> <br/>Thanks! It will take a few minutes to display your dot! </p>
+    <h2>What is a Hackathon?</h2>
+    <h4>Hacking is creative problem solving. A hackathon is an event where people come together, form teams and work towards solving problems. MapHacks is geography themed, which means projects should explore location, distance, space, spatial patterns, spatial interactions, scale, or nature and society.<h4>
+    <h4>We want you to try something new. Try mapping
+      <a href="http://www.ibesora.me/time-to-animations-in-qgis/" target = "_blank" >driving times</a>,
+      query data from <a href="https://overpass-turbo.eu/" target = "_blank">OpenStreetMap</a>,
+      or download an <a href="https://export.hotosm.org/en/v3/exports/new/describe" target = "_blank" >entire place</a>.
+      Visualize data with <a href="https://www.qgis.org/en/site/" target = "_blank" >QGIS</a>,
+      or <a href="https://www.mapbox.com/" target = "_blank" >Mapbox</a>,
+      or <a href="https://carto.com/" target = "_blank" >Carto</a>,
+      or <a href="https://www.tableau.com/" target = "_blank">Tableau</a>.
+    </h4>
+    <h4>
+      <a href="https://twitter.com/tierneyl/status/964560078442463232" target = "_blank" >Tell a story</a>,
+      let us <a href="https://tjukanov.org/europe3d/" target = "_blank" >interact with it</a>,
+      or <a href="https://aporee.org/maps/" target = "_blank" >listen to it</a>.
+    </h4>
+    <h4>We'll offer workshops the day of. If you like to teach something, reach out to us.</h4>
+    <h2>Who is the hackathon open to?<h2>
+    <h4>Our priority registration will be open to current Geography and HCDE undergradaute students, followed by all UW undergradaute students.</h4>
 
-    <h2>Partners<h2>
+    <h2>Where will it be?</h2>
+    <div>
+      <h4>MapHacks will take place in the University of Washington's Denny Hall. <button type="button" onclick="goToDenny()">Show Me Where</button>
+</h4>
+    </div>
+
+    <h2>When?</h2>
+    <h4>Workshops and hacking on April 28th, project presentations April 29th.</h4>
+    <h2>Will there be prizes?</h2>
+    <h4>Yes! To be determined. </h4>
+    <h2>Partners</h2>
     <img src="https://geography.washington.edu/sites/geography/files/geography-wordmark-white.png" />
 
     <img style="height:100px"

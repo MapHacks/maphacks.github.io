@@ -1,5 +1,4 @@
  #locationField {
-   text-align: center;
    margin-bottom: 5px;
  }
 
@@ -7,7 +6,7 @@
    margin-top: 0px;
    width: 200px;
    margin-bottom: 5px;
-   ;
+   margin-left: 29px; 
  }
 
  #controls {
@@ -68,7 +67,6 @@
      margin-top: 0px;
      width: 100px;
      margin-bottom: 5px;
-     ;
    }
    #controls {
      width: 100px;
@@ -82,8 +80,13 @@
    }
  }
 
- h1,h2,h3,h4,a {
-   font-family: "helvetica", sans-serif;
+ h1,h2{
+   font-family: "Roboto", sans-serif;
+   color: white;
+ }
+
+ h3,h4,a {
+   font-family: "ubuntu Mono", monospace;
    color: white;
    margin-top: 0;
  }
@@ -97,10 +100,26 @@
  }
 
 button {
-  float:right;
+  float: center;
+  border: none;
+  border-radius: 2px;
+  height: 25px;
+}
+
+button:hover{
+  background-color: #cf87ff;
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+a:hover {
+  color: #cf87ff;
+}
+
+label {
+  color: white;
+  font-family: "ubunut Mono", monospace;
 }
