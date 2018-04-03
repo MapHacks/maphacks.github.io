@@ -49,7 +49,7 @@
 
   <div id="topbox">
     <h1 style="text-align:center">MapHacks</h1>
-    <h2>Want updates?</h2>
+    <!--<h2>Want updates?</h2>
     <h4>Enter a location you'd like to visit and your email. We'll send you more information about the event.</h4>
     <div id="locationField">
       <label for= "email">Your Email Address:</label>
@@ -59,6 +59,7 @@
       <input id="autocomplete" placeholder="Enter a location on the map" type="text"></input>
       <button type="button" onclick="fillInAddress()">Submit</button>
     </div>
+  -->
 
     <p id="confirm"> <br/>Thanks! It will take a few minutes to display your dot! </p>
     <h2>What is a Hackathon?</h2>
@@ -91,6 +92,10 @@
     <h4>Workshops and hacking on April 28th, project presentations April 29th.</h4>
     <h2>Will there be prizes?</h2>
     <h4>Yes! To be determined. </h4>
+    <h1>Registration</h1>
+    <form>
+      <button formaction="https://goo.gl/forms/pSjQzgoBAzFQuvT52">Register Here</button>
+    </form>
     <h2>Partners</h2>
     <img src="https://geography.washington.edu/sites/geography/files/geography-wordmark-white.png" />
 
@@ -164,6 +169,8 @@
       center: [-30, 30], // starting position [lng, lat]
       zoom: 2 // starting zoom
     });
+
+    map.scrollZoom.disable();
 
     var url = 'https://41utvk47u0.execute-api.us-east-1.amazonaws.com/prod/get-data';
 
