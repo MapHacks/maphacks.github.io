@@ -1,5 +1,5 @@
 # Resources
-## Want to try out some new software? Need a tutorial an idea you have? Checkout some of the links below. 
+## Want to try out some new software? Need a tutorial? Checkout some of the links below. 
 
 
 # QGIS
