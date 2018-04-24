@@ -1,4 +1,6 @@
-# Resources.md
+# Resources
+## Want to try out some new software? Need a tutorial an idea you have? 
+## Checkout some of the links below. 
 
 
 # QGIS
@@ -63,4 +65,4 @@ Resources: *[http://maptime.io/lessons-resources/](http://maptime.io/lessons-res
 
 # Awesome-GeoJson
 
-Resources: *[https://github.com/tmcw/awesome-geojson](https://github.com/tmcw/awesome-geojson)
+Resources: *[https://github.com/tmcw/awesome-geojson](https://github.com/tmcw/awesome-geojson)*
