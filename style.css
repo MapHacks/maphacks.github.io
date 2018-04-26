@@ -93,12 +93,12 @@
 
  }
 
- p {
+ p, li {
    font-family: sans-serif;
    color: white;
    opacity: 1;
    line-height: 22px;
-   font-size: 12px;
+   font-size: 15px;
  }
 
 button {
