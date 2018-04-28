@@ -1,7 +1,7 @@
 # Resources
 ## Want to try out some new software? Need a tutorial? Checkout some of the links below. 
 
-## Folder Drive for Slides and other Resources used during the event
+## Google Drive Folder
 https://drive.google.com/drive/folders/1BmHYtBCCa2PxigV9O1A7v8x99mjp-qU_?usp=sharing
 
 # **Desktop GIS**
